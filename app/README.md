@@ -1,16 +1,3 @@
-# Photos App
-
-- Photos Uploader and Viewer
-
-- Supports Infinite Scrolling and Fullscreen view with navigation.
-- Used React + Node + Express.
-
-# Back-end - Node.js + Express
-
-### `node server.js` to run server
-
-# Front-end - React.js
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,0 +1,15 @@
+.container {
+  background-color: darkgray;
+  height: inherit;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.upload {
+  flex-grow: 1;
+}
+
+.view {
+  flex-grow: 2;
+}

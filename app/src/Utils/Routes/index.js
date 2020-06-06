@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import Upload from "../../components/Home/Upload";
+import Upload from "../../components/Home/Upload/Upload";
 import View from "../../components/Home/View";
 import Home from "../../components/Home";
 

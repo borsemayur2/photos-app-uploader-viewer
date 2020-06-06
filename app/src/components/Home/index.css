@@ -1,15 +1,14 @@
 .container {
-  background-color: darkgray;
-  height: inherit;
+  /* height: inherit; */
   display: flex;
-  justify-content: space-around;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.upload {
-  flex-grow: 1;
+a {
+  text-decoration: none;
 }
 
-.view {
-  flex-grow: 2;
+a:hover {
+  color: lightcoral;
 }

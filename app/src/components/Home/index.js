@@ -1,17 +1,15 @@
 import React from "react";
 import "./index.css";
 import Card from "../common/Card";
-import Upload from "./Upload";
-import View from "./View";
 
 const Home = () => {
   return (
     <div className="container">
       <Card to="/upload">
-        <Upload />
+        <h2>Upload Images</h2>
       </Card>
       <Card to="/view">
-        <View />
+        <h2>View Uploaded Images</h2>
       </Card>
     </div>
   );

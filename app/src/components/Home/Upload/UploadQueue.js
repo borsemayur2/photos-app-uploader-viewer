@@ -1,39 +1,34 @@
 import React from "react";
 import ProgressBar from "./ProgressBar";
-import "./UploadQueue.css";
 
 const styles = {
-  photo: {
-    height: "inherit",
-  },
   photosList: {
     overflowY: "scroll",
     maxHeight: "60vh",
   },
+  card: {
+    boxShadow: "0 0 2px 2px lightblue",
+    background: "aliceblue",
+    borderRadius: 10,
+    margin: 10,
+    padding: 5,
+  },
 };
 
 const UploadQueue = ({ photos, uploadPercent }) => {
-  const renderPhoto = (photo, index) => {
+  const renderPhoto = (photo) => {
     return <Photo photo={photo} key={`${photo.id}-photo`} />;
   };
   return (
     <>
-      {Boolean(uploadPercent) && (
-        <>
-          <ProgressBar uploadPercent={uploadPercent} />
-        </>
-      )}
+      {Boolean(uploadPercent) && <ProgressBar uploadPercent={uploadPercent} />}
       <section style={styles.photosList}>{photos.map(renderPhoto)}</section>
     </>
   );
 };
 
 const Photo = ({ photo }) => {
-  return (
-    <span style={styles.photo} className="photo-item">
-      <p style={styles.card}>{photo.path}</p>
-    </span>
-  );
+  return <p style={styles.card}>{photo.path}</p>;
 };
 
 export default UploadQueue;

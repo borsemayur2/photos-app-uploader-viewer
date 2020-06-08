@@ -6,7 +6,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PHOTOS_UPLOAD_API = "http://localhost:8000/upload";
-const PHOTOS_API = "http://localhost:8000/photos";
 
 const styles = {
   container: {
@@ -18,7 +17,6 @@ const styles = {
 const Upload = () => {
   const [photos, setPhotos] = React.useState([]);
   const [uploadPercent, setUploadPercent] = React.useState(0);
-  const source = axios.CancelToken.source();
 
   const onDrop = React.useCallback((acceptedFiles) => {
     if (acceptedFiles.length === 0) {
@@ -32,7 +30,6 @@ const Upload = () => {
   const isUploaded = () => uploadPercent === 100;
 
   const clearStates = () => {
-    source.cancel("Upload cancelled");
     setPhotos([]);
     setUploadPercent(0);
   };
@@ -40,20 +37,16 @@ const Upload = () => {
   const uploadFiles = () => {
     const formData = new FormData();
     for (const photo of photos) {
-      formData.append("files", photo);
+      formData.append("photos", photo);
     }
     axios
       .post(PHOTOS_UPLOAD_API, formData, {
         headers: { "content-type": "multipart/form-data" },
-        canceltoken: source.token,
         onUploadProgress: function (progressEvent) {
-          // console.log(progressEvent);
-
           var percentCompleted = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total
           );
           setUploadPercent(percentCompleted);
-          // console.log(percentCompleted);
         },
       })
       .then((response) => {

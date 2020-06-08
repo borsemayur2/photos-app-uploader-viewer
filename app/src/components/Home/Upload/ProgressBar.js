@@ -6,6 +6,7 @@ const styles = {
     borderRadius: 10,
     width: "100%",
     background: "lightgrey",
+    marginTop: 10,
   },
 };
 
@@ -17,7 +18,9 @@ const ProgressBar = ({ uploadPercent }) => (
         background: "lightgreen",
         width: `${uploadPercent}%`,
       }}
-    ></div>
+    >
+      {`${uploadPercent}% completed`}
+    </div>
   </div>
 );
 

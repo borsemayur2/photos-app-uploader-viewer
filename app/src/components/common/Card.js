@@ -8,7 +8,7 @@ const styles = {
     width: "30vw",
     boxShadow: "0 0 2px 2px lightblue",
     borderRadius: 20,
-    // marginTop: 50,
+    margin: "50px auto",
   },
 
   cardContentStyle: {

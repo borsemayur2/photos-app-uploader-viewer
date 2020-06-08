@@ -4,12 +4,12 @@ import Card from "../common/Card";
 
 const Home = () => {
   return (
-    <div className="container">
+    <div className="home-container">
       <Card to="/upload">
-        <h2>Upload Images</h2>
+        <h2>Upload Photos</h2>
       </Card>
       <Card to="/view">
-        <h2>View Uploaded Images</h2>
+        <h2>View Uploaded Photos</h2>
       </Card>
     </div>
   );

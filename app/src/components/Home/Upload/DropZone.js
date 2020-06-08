@@ -22,9 +22,9 @@ const DropZone = ({ onDrop, accept }) => {
       <input className="dropzone-input" {...getInputProps()} />
       <div className="text-center">
         {isDragActive ? (
-          <p style={styles.dropzoneContent}>Release to drop images here</p>
+          <p style={styles.dropzoneContent}>Release to drop photos here</p>
         ) : (
-          <p style={styles.dropzoneContent}>Drag 'n' Drop or select images</p>
+          <p style={styles.dropzoneContent}>Drag 'n' Drop or select photos</p>
         )}
       </div>
     </div>

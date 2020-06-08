@@ -1,5 +1,6 @@
 import React from "react";
 import ProgressBar from "./ProgressBar";
+import "./UploadQueue.css";
 
 const styles = {
   photo: {
@@ -7,7 +8,7 @@ const styles = {
   },
   photosList: {
     overflowY: "scroll",
-    maxHeight: "45vh",
+    maxHeight: "60vh",
   },
 };
 
@@ -19,7 +20,6 @@ const UploadQueue = ({ photos, uploadPercent }) => {
     <>
       {Boolean(uploadPercent) && (
         <>
-          <p>{`${uploadPercent}% completed`}</p>
           <ProgressBar uploadPercent={uploadPercent} />
         </>
       )}

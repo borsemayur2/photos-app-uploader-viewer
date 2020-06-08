@@ -3,10 +3,14 @@ body {
 }
 
 .App {
-  height: 90vh;
-  width: 90vw;
-  margin: 5vh auto;
+  height: 96vh;
+  width: 98vw;
+  margin: auto;
   text-align: center;
   background-color: white;
   border-radius: 1em;
+}
+
+button {
+  border-radius: .5rem;
 }

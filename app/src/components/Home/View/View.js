@@ -10,9 +10,7 @@ const View = () => {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    if (currentPage === 1) {
-      fetchPhotos();
-    }
+    fetchPhotos();
   }, [currentPage]);
 
   const fetchPhotos = () => {
@@ -30,16 +28,16 @@ const View = () => {
           meta: { currentPage },
         } = response.data;
         setPhotos((photos) => [...photos, ...result]);
-        setCurrentPage(currentPage + 1);
         setPaginationInfo(meta);
       })
       .catch((err) => console.log(err));
   };
 
   const getUrl = () => `${PHOTOS_API}?currentPage=${currentPage}`;
+  // const getUrl = () => `https://picsum.photos/v2/list?page=${currentPage}`;
   return (
     <>
-      <PhotosGrid data={photos} />
+      <PhotosGrid data={photos} setCurrentPage={setCurrentPage} />
     </>
   );
 };

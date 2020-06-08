@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useCallback } from "react";
 import "./PhotosGrid.css";
 import FullScreenView from "./FullScreenView";
 
@@ -8,7 +8,20 @@ const PhotosGrid = (props) => {
   const [showFullScreen, setShowFullScreen] = React.useState(false);
   const [photo, setPhoto] = React.useState("");
   const [index, setIndex] = React.useState(0);
+
   const { data } = props;
+
+  const observer = useRef();
+
+  const lastPhotoRef = useCallback((node) => {
+    if (observer.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        props.setCurrentPage((prevPage) => prevPage + 1);
+      }
+    });
+    if (node) observer.current.observe(node);
+  }, []);
 
   if (!data.length) return <></>;
 
@@ -30,7 +43,8 @@ const PhotosGrid = (props) => {
       {data.map((photo, index) => {
         return (
           <div
-            key={photo.date}
+            ref={data.length === index + 1 ? lastPhotoRef : null}
+            key={photo.filename}
             className="card"
             onClick={() => showPhoto(photo, index)}
           >
@@ -39,14 +53,20 @@ const PhotosGrid = (props) => {
               src={`${BASE_API}/${photo.filename}`}
               alt={photo.filename}
             />
-            <p></p>
           </div>
         );
       })}
 
       {showFullScreen && (
         <FullScreenView show={showFullScreen} handleClose={hidePhotoFullscreen}>
-          <div className="card-fullscreen">
+          <div
+            className="card-fullscreen"
+            ref={
+              data[data.length - 1].filename === photo.filename
+                ? lastPhotoRef
+                : null
+            }
+          >
             <p>{photo.filename.split(".")[0]}</p>
             <p>{new Date(photo.date).toLocaleString()}</p>
             <div className="carousel">

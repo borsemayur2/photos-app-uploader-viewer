@@ -1,36 +1,3 @@
-# Photos App
-
-![Photos](photos-app-screenshot.png)
-
-- Photos Uploader and Viewer
-- Multiple Images Uploader with select and Drag 'n' Drop Support.
-- Supports Upload Progress Bar
-- Supports Infinite Scrolling and Fullscreen view with navigation.
-- Photos Grid view
-- Used React + Node + Express.
-
-# Back-end - Node.js + Express
-
-### `node server.js` to run server
-
-# Front-end - React.js
-
-### `yarn start`
-
-## Photos App Screenshot
-
-View Uploaded Photos
-
-![Photos-Screenshot](photos-app-viewer.png)
-
-Uploader with progress bar
-
-![Upload](upload-progress-bar.png)
-
-Fullscreen View with Previous and Next Image navigation
-
-![Fullscreen](photos-app-full-screen.png)
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

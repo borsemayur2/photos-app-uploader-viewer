@@ -23,7 +23,7 @@ const PhotosGrid = (props) => {
     if (node) observer.current.observe(node);
   }, []);
 
-  if (!data.length) return <></>;
+  if (!data.length) return <h2>Photos not uploaded</h2>;
 
   const showPhoto = (photo, index) => {
     setShowFullScreen(true);
